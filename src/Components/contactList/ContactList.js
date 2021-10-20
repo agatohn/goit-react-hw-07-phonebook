@@ -1,20 +1,22 @@
 import React from "react";
 import styles from "./ContactList.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteContact } from "../../Redux/phonebook/phoneboock-operations";
+import { deleteContact } from "../../redux/phonebook/phoneboock-operations";
 import {
-  getContacts,
-  getFilter,
-} from "../../Redux/phonebook/phoneboock-selectors";
+  // getContacts,
+  // getFilter,
+  getFilteredContacts,
+} from "../../redux/phonebook/phoneboock-selectors";
 
 export default function ContactList() {
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  // const contacts = useSelector(getContacts);
+  // const filter = useSelector(getFilter);
+  const filteredContacts = useSelector(getFilteredContacts);
   const dispatch = useDispatch();
 
-  const filteredContacts = contacts.filter(({ name }) =>
-    name.toLowerCase().includes(filter.toLowerCase())
-  );
+  // const filteredContacts = contacts.filter(({ name }) =>
+  //   name.toLowerCase().includes(filter.toLowerCase())
+  // );
 
   return (
     <ul className={styles.contactList}>
